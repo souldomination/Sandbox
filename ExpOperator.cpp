@@ -44,7 +44,7 @@ int main(void)
     A x, y;
 
     std::cin >> x >> y;
-    std::cout << x * *y;
+    std::cout << x ** y;
 
     return 0;
 }
