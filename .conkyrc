@@ -1,0 +1,67 @@
+conky.config = {
+	background = true,
+	update_interval = 1.5,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 120,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	border_inner_margin = 10,
+	border_outer_margin = 0,
+	xinerama_head = 2,
+	alignment = 'bottom_right',
+	gap_x = 90,
+	gap_y = 90,
+	draw_shades = true,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'Ubuntu Mono:size=12',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = '#FFFFFF',
+	own_window_colour = '#000000',
+	minimum_width = 0, minimum_height = 0,
+};
+conky.text = [[
+	${color #DD3A21}System ${color}${goto 85}$sysname $kernel $machine
+	${color #DD3A21}Host ${color}${goto 85}$nodename
+	${hr}
+	${color #DD3A21}${goto 20}CPU ${color}${goto 85}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
+	${color #DD3A21}Uptime ${color}${goto 85}$uptime
+	${color #DD3A21}Temp. ${color}${goto 77} ${hwmon 0 temp 1}°C
+	${goto 20}CPU 0: ${cpu cpu0}%${goto 112}${cpubar 7,80 cpu0}${goto 222}CPU 6: ${cpu cpu6}%${goto 314}${cpubar 7,80 cpu4}
+	${goto 20}CPU 1: ${cpu cpu1}%${goto 112}${cpubar 7,80 cpu1}${goto 222}CPU 7: ${cpu cpu7}%${goto 314}${cpubar 7,80 cpu5}
+	${goto 20}CPU 2: ${cpu cpu2}%${goto 112}${cpubar 7,80 cpu2}${goto 222}CPU 8: ${cpu cpu8}%${goto 314}${cpubar 7,80 cpu6}
+	${goto 20}CPU 3: ${cpu cpu3}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU 9: ${cpu cpu9}%${goto 314}${cpubar 7,80 cpu7}
+	${goto 20}CPU 4: ${cpu cpu4}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU10: ${cpu cpu10}%${goto 314}${cpubar 7,80 cpu7}
+	${goto 20}CPU 5: ${cpu cpu5}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU11: ${cpu cpu11}%${goto 314}${cpubar 7,80 cpu7}
+	${hr}
+	${color #DD3A21}Memory${color}${voffset -1} ${mem} / ${memmax} (${memperc}%)
+	${goto 20}${memgraph 30,355 AAF5D0 00B35B}
+	${hr}
+	${color #DD3A21}${goto 20}Name ${goto 236}Pid${goto 299}Cpu%${goto 366}Mem%${color}
+	${goto 20}${top name 1} ${goto 220}${top pid 1}${goto 283}${top cpu 1}${goto 350}${top mem 1}
+	${goto 20}${top name 2} ${goto 220}${top pid 2}${goto 283}${top cpu 2}${goto 350}${top mem 2}
+	${goto 20}${top name 3} ${goto 220}${top pid 3}${goto 283}${top cpu 3}${goto 350}${top mem 3}
+	${goto 20}${top name 4} ${goto 220}${top pid 4}${goto 283}${top cpu 4}${goto 350}${top mem 4}
+	${goto 20}${top name 5} ${goto 220}${top pid 5}${goto 283}${top cpu 5}${goto 350}${top mem 5}
+	${hr}
+	${color #DD3A21}Network${color}${voffset -1} ${execi 180 wget -O -  https://api.ipify.org | tail} ${color #DD3A21}|${color} ${addr enp4s0}
+	${goto 20}${upspeedgraph enp4s0 30,178 06E9F8 2104FA}${goto 202}${downspeedgraph enp4s0 30,175 FFFF00 DD3A21}
+	${font FontAwesome}${goto 20}${font} ${upspeed enp4s0}${font FontAwesome}${goto 202}${font} ${downspeed enp4s0}
+	${hr}
+	${color #DD3A21}Disk${color}
+	${goto 20}${diskiograph_read 30,178 06E9F8 2104FA}${goto 202}${diskiograph_write 30,175 FFFF00 DD3A21}
+	${font FontAwesome}${goto 20}${font} ${diskio_read}${font FontAwesome}${goto 202}${font} ${diskio_write}${voffset -10}
+
+]];
