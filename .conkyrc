@@ -31,7 +31,7 @@ conky.config = {
 	default_color = '#FFFFFF',
 	own_window_colour = '#000000',
 	minimum_width = 0, minimum_height = 0,
-};
+}; 
 conky.text = [[
 	${color #DD3A21}System ${color}${goto 85}$sysname $kernel $machine
 	${color #DD3A21}Host ${color}${goto 85}$nodename
@@ -39,12 +39,12 @@ conky.text = [[
 	${color #DD3A21}${goto 20}CPU ${color}${goto 85}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
 	${color #DD3A21}Uptime ${color}${goto 85}$uptime
 	${color #DD3A21}Temp. ${color}${goto 77} ${hwmon 0 temp 1}°C
-	${goto 20}CPU 0: ${cpu cpu0}%${goto 112}${cpubar 7,80 cpu0}${goto 222}CPU 6: ${cpu cpu6}%${goto 314}${cpubar 7,80 cpu4}
-	${goto 20}CPU 1: ${cpu cpu1}%${goto 112}${cpubar 7,80 cpu1}${goto 222}CPU 7: ${cpu cpu7}%${goto 314}${cpubar 7,80 cpu5}
-	${goto 20}CPU 2: ${cpu cpu2}%${goto 112}${cpubar 7,80 cpu2}${goto 222}CPU 8: ${cpu cpu8}%${goto 314}${cpubar 7,80 cpu6}
-	${goto 20}CPU 3: ${cpu cpu3}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU 9: ${cpu cpu9}%${goto 314}${cpubar 7,80 cpu7}
-	${goto 20}CPU 4: ${cpu cpu4}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU10: ${cpu cpu10}%${goto 314}${cpubar 7,80 cpu7}
-	${goto 20}CPU 5: ${cpu cpu5}%${goto 112}${cpubar 7,80 cpu3}${goto 222}CPU11: ${cpu cpu11}%${goto 314}${cpubar 7,80 cpu7}
+	${goto 20}CPU 0: ${cpu cpu0}%${goto 112}${cpubar cpu0 7,80}${goto 237}CPU 6: ${cpu cpu6}%${goto 329}${cpubar cpu6 7,80}
+	${goto 20}CPU 1: ${cpu cpu1}%${goto 112}${cpubar cpu1 7,80}${goto 237}CPU 7: ${cpu cpu7}%${goto 329}${cpubar cpu7 7,80}
+	${goto 20}CPU 2: ${cpu cpu2}%${goto 112}${cpubar cpu2 7,80}${goto 237}CPU 8: ${cpu cpu8}%${goto 329}${cpubar cpu8 7,80}
+	${goto 20}CPU 3: ${cpu cpu3}%${goto 112}${cpubar cpu3 7,80}${goto 237}CPU 9: ${cpu cpu9}%${goto 329}${cpubar cpu9 7,80}
+	${goto 20}CPU 4: ${cpu cpu4}%${goto 112}${cpubar cpu4 7,80}${goto 237}CPU10: ${cpu cpu10}%${goto 329}${cpubar cpu10 7,80}
+	${goto 20}CPU 5: ${cpu cpu5}%${goto 112}${cpubar cpu5 7,80}${goto 237}CPU11: ${cpu cpu11}%${goto 329}${cpubar cpu11 7,80}
 	${hr}
 	${color #DD3A21}Memory${color}${voffset -1} ${mem} / ${memmax} (${memperc}%)
 	${goto 20}${memgraph 30,355 AAF5D0 00B35B}
